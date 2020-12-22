@@ -1,0 +1,50 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+            <h3>Регистрация нового пользователя</h3>
+            <hr>
+            <form method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+
+                <label for="id_username">Логин:</label>
+                <input id="username" type="text" class="form-control" name="username"><br>
+                         {{form.errors.username}}
+
+                <label for="id_password">Пароль:</label>
+                <input id="password" type="password" class="form-control" name="password" ><br>
+                        {{form.errors.password}}
+
+                <label for="id_password2">Подтвердите пароль:</label>
+                <input id="password2" type="password" class="form-control" name="password2" ><br>
+                        {{form.errors.password2}}
+
+                <label for="id_first_name">Имя:</label>
+                <input id="first_name" type="text" class="form-control" name="first_name"><br>
+                        {{form.errors.first_name}}
+
+                <label for="id_last_name">Фамилия*:</label>
+                <input id="last_name" type="text" class="form-control" name="last_name"><br>
+
+                <label for="id_email">Электронная почта*:</label>
+                <input id="email" type="email" class="form-control" name="email"><br>
+        <!--                {{form.errors.email}}-->
+                <hr>
+                <p>
+                    * Необязательно к заполнению
+                </p>
+
+                <button style="height: 30px; background-color: #000080; color: #FFFFFF; margin-top: 20px" type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

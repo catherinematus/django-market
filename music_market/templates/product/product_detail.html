@@ -1,0 +1,40 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+         <div class="col-sm-4">
+        {% for img in images %}
+        <img src="{{ img.image.url }}" alt="" width="80%" height="80%" class="mr-3">
+        {% endfor %}
+         </div>
+
+         <div class="col-sm-8">
+
+            <h2> {{product.name}}</h2>
+            <p>Артикул:  {{product.vendor_code}} </p>
+            <p>Страна производства:  {{product.country_of_origin}}</p>
+            <p>Гарантия (мес):  {{product.warranty}}</p>
+            <p>Комплектация: {{product.equipment}}</p>
+            <p>Бренд: {{product.brand_name}}</p>
+            <h3> {{product.price}} р.</h3>
+
+            <div style="text-align: center; border: 0px solid #666">
+                       <a class="btn btn-success" style="border-radius: 0"
+                          href="{% url 'product_to_basket' product_pk=product.pk%}">
+                           В корзину <span class="glyphicon glyphicon"></span></a>
+            </div>
+         </div>
+    </div>
+
+    <div class="row" style="background: #00BFFF; margin-top: 10px; padding-left: 5px">
+            <h4>Описание:</h4>
+    </div>
+
+    <div class="row" style="padding-left: 5px">
+            <p>{{product.description}}</p>
+    </div>
+</div>
+
+{% endblock %}

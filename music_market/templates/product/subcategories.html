@@ -1,0 +1,22 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+      {% for subcategory in subcategorys %}
+        <a href="{% url 'product_subcategory' pk_subcategory=subcategory.pk %}">
+          <div class="subcategory">
+              <p class="text-center" style="font: italic 20px Arial; color: blue">{{ subcategory }}</p>
+              <p class="text-center">
+                  <img src="/media/{{subcategory.subcategory_image}}"
+                       alt="" width="150" height="150" class="mr-3">
+              </p>
+          </div>
+        </a>
+      {% endfor %}
+
+</div>
+
+
+{% endblock %}

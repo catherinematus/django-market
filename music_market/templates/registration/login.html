@@ -1,0 +1,35 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+                <h3>Авторизация</h3>
+                <hr>
+
+                <form method="post" action="{% url 'login_user' %}">
+                    {% csrf_token %}
+
+                    <label for="id_username"></label>
+                    <input id="username" type="text" class="form-control" name="username" placeholder="Логин"><br>
+                         {{form.errors.username}}
+
+                    <label for="id_password"></label>
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Пароль"><br>
+                        {{form.errors.password}}
+
+                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Вход">
+                </form>
+                <p style="margin-top: 10px"> или зарегистрируйтесь <a href="{% url 'register' %}" style="color:blue" > здесь </a>
+                </p>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

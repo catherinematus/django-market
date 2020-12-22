@@ -1,0 +1,34 @@
+.subcategory {
+    float: left;
+    width: 250px;
+    height: 250px;
+    padding-top: 10px;
+    margin: 10px;
+}
+
+.subcategory:hover {
+    border: 1px dotted #666;
+}
+
+.products {
+    float: left;
+    width: 280px;
+    height: 280px;
+    padding-top: 10px;
+    margin: 10px;
+    box-shadow: -5px -5px 10px gray;
+}
+
+.products:hover {
+    border: 1px solid #FDF5E6;
+}
+
+.navbar-intensive. navbar-nav .li a:hover,
+.navbar-intensive. navbar-nav .li a:focus {
+    color: red;
+}
+
+.navbar-intensive .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
+}
+

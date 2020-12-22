@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Music market</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-intensive" style="border-radius: 0; background-color: #000080; border-color: #000080">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="color: #FFFFFF">Music Market</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right" >
+                <li><a href="{% url 'register'%}" style="background-color: #000080; color: #FFFFFF"><span class="glyphicon glyphicon-user"></span>
+                    Регистрация </a></li>
+                <li><a href="{% url 'login_user'%}" style="background-color: #000080; color: #FFFFFF"><span class="glyphicon glyphicon-log-in"></span>
+                    Вход </a></li>
+                <li><a href="{% url 'product_in_basket'%}" style="background-color: #000080; color: #FFFFFF">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    Корзина
+                    <span class="badge">{{ basket_products.count }}</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+              {% block content %}
+
+              {% endblock %}
+
+<div class="panel panel-default" style="margin-top: 200px">
+    <div class="panel-footer">
+        <p class="text-center">Copyright <span class="glyphicon glyphicon-copyright-mark"></span>  Music Market 2020</p>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+      {% for product in products %}
+      <div class="products">
+            <a href="{% url 'product_to_basket' product_pk=product.pk%}">
+                <span class="glyphicon glyphicon-shopping-cart"
+                      style="font-size:25px; color:green; margin-left:20px"></span>
+            </a>
+            <a href="{%url 'product_detail' product_pk=product.pk%}">
+                    {% for img in product.images.all %}
+                       <p class="text-center"><img src="{{ img.image.url }}"
+                                 alt="" width="150" height="150" class="mr-3">
+                       </p>
+                    {% endfor %}
+                     <p class="text-center" style="font: italic 15px Arial; color: blue">{{product}}</p>
+                     <p class="text-center" style="font: 25px Arial; color: black">{{product.price}} р.</p>
+            </a>
+      </div>
+      {% endfor %}
+
+</div>
+
+
+{% endblock %}

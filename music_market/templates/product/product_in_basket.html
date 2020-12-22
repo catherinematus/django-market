@@ -1,0 +1,63 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+          {% if products %}
+
+             <h4><a href="{% url 'home_page'%}"
+                       style="margin-top: 15px;"> Продолжить покупки </a></h4>
+
+               {% for product in products %}
+               <div class="row" style="margin-top: 30px">
+                   <div class="col-sm-2" style="padding-left: 10px">
+
+                  {% for img in product.product.images.all %}
+                       <img src="{{ img.image.url }}" alt="" width="90" height="90" class="mr-3">
+                  {% endfor %}
+                   </div>
+
+                   <div class="col-sm-3" style="padding-left: 10px">
+                         <h4>{{ product }}</h4>
+                         <p>Артикул: {{ product.product.vendor_code }}</p>
+                   </div>
+
+                   <div class="col-sm-2" style="padding-left: 10px">
+                         <h4> {{ product.product.price }} р.</h4>
+                   </div>
+
+                   <div class="col-sm-3" style="padding-left: 10px">
+                        <div style="float:left; width: 34px; height: 34px; margin-right: 5px; border: 1px solid #666; text-align: center; padding-top: 5px">
+                                   {{ product.count }}
+                        </div>
+                        <a class="btn btn-success" href="{% url 'product_remove_basket' product_pk=product.pk%}">
+                             <span class="glyphicon glyphicon-minus" style="width: 10px; height: 10px;"></span></a>
+                        <a class="btn btn-success" href="{% url 'product_to_basket' product_pk=product.product.pk%}">
+                             <span class="glyphicon glyphicon-plus" style="width: 10px; height: 10px;"></span></a>
+
+                        <p><a href="{% url 'product_leave_basket' product_pk=product.pk%}"> Удалить товар из корзины </a></p>
+                   </div>
+
+                   <div class="col-sm-2" style="padding-left: 10px">
+                     <h4> {{ product.product_totalprice }} р.</h4>
+                   </div>
+               </div>
+                <hr>
+               {% endfor %}
+
+               <h3> Итого: {{basket.total_price}}р. </h3>
+
+               <p><a href="{% url 'order' basket_pk=basket.pk%}" class="btn btn-success" style="float:right">
+                   <span class="glyphicon glyphicon">Оформить заказ</span></a></p>
+
+               {% else %}
+                  <h2>Ваша корзина пуста</h2>
+               {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
