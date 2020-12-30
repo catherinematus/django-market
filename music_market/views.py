@@ -3,6 +3,7 @@ from .models import Category, Subcategory, Product, Image, Basket, ProductInBask
 from .forms import ContactForm, LoginForm, RegisterUserForm
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -137,6 +138,7 @@ def order(request, basket_pk):
             order = form.save(commit=False)
             order.order_products = ' '.join('{0} - {1} шт.,'.format(key, val) for key, val in list_order.items())
             order.save()
+            messages.add_message(request, messages.INFO, 'Спасибо за заказ. Мы Вам позвоним.')
             pib = ProductInBasket.objects.filter(basket__id=basket.id).delete()
             return redirect('home_page')
     else:
