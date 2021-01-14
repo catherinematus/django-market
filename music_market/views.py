@@ -41,6 +41,7 @@ def product_category(request, pk_category):
     return render(request, 'product/subcategories.html', {'subcategorys': subcategorys,
                                                           'basket': basket,
                                                           'basket_products': basket_products,
+                                                          'category': category,
                                                           })
 
 
@@ -56,6 +57,7 @@ def product_subcategory(request, pk_subcategory):
     return render(request, 'product/product_list.html', {'products': products,
                                                          'basket': basket,
                                                          'basket_products': basket_products,
+                                                         'subcategory': subcategory,
                                                          })
 
 

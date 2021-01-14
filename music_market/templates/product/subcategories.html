@@ -4,6 +4,13 @@
 
 <div class="container">
 
+    <nav aria-label="breadcrumb" class="mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home_page' %}">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+        </ol>
+    </nav>
+
       {% for subcategory in subcategorys %}
         <a href="{% url 'product_subcategory' pk_subcategory=subcategory.pk %}">
           <div class="subcategory">
