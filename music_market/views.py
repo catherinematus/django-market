@@ -189,13 +189,13 @@ def register(request):
         form = RegisterUserForm()
     return render(request, 'registration/register.html', {'form': form})
 
-def get_comments(request):
+def reviews(request):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            return render(request, 'product/home_page.html', {'form': form})
+            return render(request, 'product/reviews.html', {'form': form})
     else:
         form = CommentForm()
-    return render(request, 'product/home_page.html', {'form': form})
+    return render(request, 'product/reviews.html', {'form': form})
 
 

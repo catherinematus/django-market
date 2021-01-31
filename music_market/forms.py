@@ -104,4 +104,4 @@ class RegisterUserForm(forms.ModelForm):
 
 class CommentForm(forms.Form):
     your_name = forms.CharField(label="Ваше имя", max_length=100)
-    comment = forms.TextInput()
+    comment = forms.TextField()

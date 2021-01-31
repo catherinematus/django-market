@@ -1,0 +1,30 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+          <h3>Ваши отзывы</h3>
+          <hr>
+
+          <form method="post" action="{% url 'reviews' %}">
+                    {% csrf_token %}
+
+                    <label for="id_your_name"></label>
+                    <input id="your_name" type="text" class="form-control" name="your_name" placeholder="Ваше имя"><br>
+                         {{form.errors.your_name}}
+
+                    <label for="id_comment"></label>
+                    <input id="comment" type="text" class="form-control" name="comment" placeholder="Ваш отзыв"><br>
+                        {{form.errors.comment}}
+
+                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">
+                </form>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
