@@ -101,3 +101,7 @@ class RegisterUserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class CommentForm(forms.Form):
+    your_name = forms.CharField(label="Ваше имя", max_length=100)
+    comment = forms.TextInput()

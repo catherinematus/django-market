@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Subcategory, Product, Image, Basket, ProductInBasket, Order
-from .forms import ContactForm, LoginForm, RegisterUserForm
+from .forms import ContactForm, LoginForm, RegisterUserForm, CommentForm
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -188,3 +188,14 @@ def register(request):
     else:
         form = RegisterUserForm()
     return render(request, 'registration/register.html', {'form': form})
+
+def get_comments(request):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            return render(request, 'product/home_page.html', {'form': form})
+    else:
+        form = CommentForm()
+    return render(request, 'product/home_page.html', {'form': form})
+
+
