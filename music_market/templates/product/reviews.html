@@ -8,16 +8,22 @@
           <h3>Ваши отзывы</h3>
           <hr>
 
-          <form method="post" action="{% url 'reviews' %}">
+          {% for review in reviews %}
+                {{review.author}}
+                {{review.text}}
+                {{review.date}
+          {% endfor %}
+
+          <form method="post" action="{% url 'review' %}">
                     {% csrf_token %}
 
-                    <label for="id_your_name"></label>
-                    <input id="your_name" type="text" class="form-control" name="your_name" placeholder="Ваше имя"><br>
-                         {{form.errors.your_name}}
+                    <label for="id_author"></label>
+                    <input id=author" type="text" class="form-control" name="author" placeholder="Ваше имя"><br>
+<!--                         {{form.errors.author}}-->
 
-                    <label for="id_comment"></label>
-                    <input id="comment" type="text" class="form-control" name="comment" placeholder="Ваш отзыв"><br>
-                        {{form.errors.comment}}
+                    <label for="id_text"></label>
+                    <input id="text" type="text" class="form-control" name="comment" placeholder="Ваш отзыв"><br>
+<!--                        {{form.errors.text}}-->
 
                     <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">
                 </form>

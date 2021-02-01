@@ -2,7 +2,7 @@ from typing import re
 from django import forms
 from django.contrib.auth import password_validation
 
-from .models import Order
+from .models import Order, Review
 from django.contrib.auth.models import User
 import re
 
@@ -94,7 +94,6 @@ class RegisterUserForm(forms.ModelForm):
             self.add_error('password2', 'Пароль не подтвержден')
         return self.cleaned_data
 
-
     def save(self, commit=True):
         user = super(RegisterUserForm, self).save(commit=False)
         user.set_password(self.cleaned_data['password'])
@@ -102,6 +101,13 @@ class RegisterUserForm(forms.ModelForm):
             user.save()
         return user
 
-class CommentForm(forms.Form):
-    your_name = forms.CharField(label="Ваше имя", max_length=100)
-    comment = forms.TextField()
+
+class ReviewForm(forms.ModelForm):
+    # your_name = forms.CharField(label="Ваше имя", max_length=100)
+    # comment = forms.TextField()
+
+    class Meta:
+        model = Review
+        fields = ['author',
+                  'text',
+                  ]

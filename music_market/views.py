@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Subcategory, Product, Image, Basket, ProductInBasket, Order
-from .forms import ContactForm, LoginForm, RegisterUserForm, CommentForm
+from .models import Category, Subcategory, Product, Image, Basket, ProductInBasket, Order, Review
+from .forms import ContactForm, LoginForm, RegisterUserForm, ReviewForm
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
@@ -189,13 +189,20 @@ def register(request):
         form = RegisterUserForm()
     return render(request, 'registration/register.html', {'form': form})
 
-def reviews(request):
+
+def review(request):
+    reviews = Review.objects.all()
     if request.method == "POST":
-        form = CommentForm(request.POST)
+        form = ReviewForm(request.POST)
         if form.is_valid():
-            return render(request, 'product/reviews.html', {'form': form})
+            form.save()
+            return render(request, 'product/reviews.html', {'reviews': reviews,
+                                                            'form': form,
+                                                            })
     else:
-        form = CommentForm()
-    return render(request, 'product/reviews.html', {'form': form})
+        form = ReviewForm()
+    return render(request, 'product/reviews.html', {'reviews': reviews,
+                                                    'form': form,
+                                                    })
 
 

@@ -1,5 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
+from django.utils import timezone
+
 
 
 class Product(models.Model):
@@ -117,3 +119,15 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
+
+class Review(models.Model):
+    author = models.CharField(max_length=64)
+    text = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.text}'
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
