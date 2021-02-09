@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.utils import timezone
 
 
 def home_page(request):
@@ -195,10 +196,13 @@ def review(request):
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
+            form.date = timezone.now()
             form.save()
-            return render(request, 'product/reviews.html', {'reviews': reviews,
-                                                            'form': form,
-                                                            })
+            return redirect('home_page')
+
+            # return render(request, 'product/reviews.html', {'reviews': reviews,
+            #                                                 'form': form,
+            #                                                 })
     else:
         form = ReviewForm()
     return render(request, 'product/reviews.html', {'reviews': reviews,

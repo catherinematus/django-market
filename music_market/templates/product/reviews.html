@@ -3,31 +3,42 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <a href="{{request.META.HTTP_REFERER}}">Назад</a>
 
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+
+         <div class="col-sm-8">
           <h3>Ваши отзывы</h3>
           <hr>
 
           {% for review in reviews %}
-                {{review.author}}
-                {{review.text}}
-                {{review.date}
+             <div class="comments" style="padding:10px 50px 10px 50px; margin-top:10px; background-color:#ededed">
+                <h4>{{review.author}}</h4>
+                <p style="padding-left:30px"><i>{{review.text}}</i></p>
+                <hr>
+                <p><i>{{review.date}}</i></p>
+             </div>
           {% endfor %}
 
-          <form method="post" action="{% url 'review' %}">
-                    {% csrf_token %}
+<!--          <form method="post" action="{% url 'review' %}">-->
+<!--                    {% csrf_token %}-->
 
-                    <label for="id_author"></label>
-                    <input id=author" type="text" class="form-control" name="author" placeholder="Ваше имя"><br>
-<!--                         {{form.errors.author}}-->
+<!--              {{ form.as_p }}-->
 
-                    <label for="id_text"></label>
-                    <input id="text" type="text" class="form-control" name="comment" placeholder="Ваш отзыв"><br>
-<!--                        {{form.errors.text}}-->
+<!--                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">-->
 
-                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">
-                </form>
+<!--                </form>-->
+            <div style="text-align: left; border: 0px solid #666; margin-top:20px">
+                       <a class="btn btn-success" style="border-radius: 0"
+                          href="#">
+                           Оставить отзыв <span class="glyphicon glyphicon"></span></a>
+            </div>
 
+         </div>
+        <div class="col-sm-2">
+        </div>
     </div>
 </div>
 
