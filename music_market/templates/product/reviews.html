@@ -22,17 +22,9 @@
              </div>
           {% endfor %}
 
-<!--          <form method="post" action="{% url 'review' %}">-->
-<!--                    {% csrf_token %}-->
-
-<!--              {{ form.as_p }}-->
-
-<!--                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">-->
-
-<!--                </form>-->
             <div style="text-align: left; border: 0px solid #666; margin-top:20px">
                        <a class="btn btn-success" style="border-radius: 0"
-                          href="#">
+                          href="{% url 'add_review' %}">
                            Оставить отзыв <span class="glyphicon glyphicon"></span></a>
             </div>
 

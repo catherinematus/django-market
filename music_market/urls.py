@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import home_page, product_category, product_subcategory, product_detail,\
-    product_to_basket, product_in_basket, product_remove_basket, product_leave_basket, login_user, register, review
+    product_to_basket, product_in_basket, product_remove_basket, product_leave_basket, login_user, register, review, \
+    add_review
 
 urlpatterns = [
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('product_in_basket/', product_in_basket, name='product_in_basket'),
     path('product_to_basket/order/<int:basket_pk>/', views.order, name='order'),
     path('review/', review, name='review'),
+    path('add_review/', add_review, name='add_review'),
 
     path('', home_page, name='home_page'),
 

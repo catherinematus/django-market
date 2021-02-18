@@ -1,0 +1,55 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+<div class="container">
+<!--    <a href="{{request.META.HTTP_REFERER}}">Назад</a>-->
+
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+
+<!--         <div class="col-sm-8">-->
+<!--          <h3>Ваш отзыв</h3>-->
+<!--          <hr>-->
+
+<!--          <form method="post" action="{% url 'add_review' %}">-->
+<!--                    {% csrf_token %}-->
+
+<!--              {{ form.as_p }}-->
+
+<!--                    <input type="submit" class="btn btn-success" style="border-radius: 0" value="Разместить отзыв">-->
+
+<!--                </form>-->
+
+<!--         </div>-->
+
+        <div class="col-sm-8">
+
+            <form method="post" action="{% url 'add_review' %}">
+                {% csrf_token %}
+
+                <label for="id_author">Ваше имя:</label>
+                <input id="author" type="text" class="form-control" name="author"><br>
+<!--                         {{form.errors.author}}-->
+
+                <label for="id_text">Отзыв:</label>
+                <input id="text" type="text" class="form-control" name="text" ><br>
+<!--                        {{form.errors.text}}-->
+
+
+
+                <button style="height: 30px; background-color: #000080; color: #FFFFFF; margin-top: 20px" type="submit">Разместить отзыв</button>
+            </form>
+
+        </div>
+
+
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
