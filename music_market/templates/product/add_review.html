@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
 <!--    <a href="{{request.META.HTTP_REFERER}}">Назад</a>-->
 
     <div class="row">
@@ -30,16 +30,19 @@
                 {% csrf_token %}
 
                 <label for="id_author">Ваше имя:</label>
-                <input id="author" type="text" class="form-control" name="author"><br>
+                <input id="author" type="text" class="form-control" name="author">
 <!--                         {{form.errors.author}}-->
 
                 <label for="id_text">Отзыв:</label>
-                <input id="text" type="text" class="form-control" name="text" ><br>
+                <textarea class="form-control" row="5" id="text" name="text"></textarea><br>
+<!--                <input id="text" type="text" class="form-control" name="text" ><br>-->
 <!--                        {{form.errors.text}}-->
 
+<!--                        {{ form.as_p }}-->
 
 
-                <button style="height: 30px; background-color: #000080; color: #FFFFFF; margin-top: 20px" type="submit">Разместить отзыв</button>
+
+                <button class="btn btn-success" type="submit">Разместить отзыв</button>
             </form>
 
         </div>

@@ -216,6 +216,7 @@ def add_review(request):
         if form.is_valid():
             form.date = timezone.now()
             form.save()
+            messages.add_message(request, messages.INFO, 'Спасибо за ваш отзыв.')
             return redirect('home_page')
 
             # return render(request, 'product/reviews.html', {'reviews': reviews,
