@@ -193,35 +193,19 @@ def register(request):
 
 def review(request):
     reviews = Review.objects.all()
-    # if request.method == "POST":
-    #     form = ReviewForm(request.POST)
-    #     if form.is_valid():
-    #         form.date = timezone.now()
-    #         form.save()
-    #         return redirect('home_page')
-    #
-    #         # return render(request, 'product/reviews.html', {'reviews': reviews,
-    #         #                                                 'form': form,
-    #         #                                                 })
-    # else:
-    #     form = ReviewForm()
+
     return render(request, 'product/reviews.html', {'reviews': reviews,
-                                                    # 'form': form,
                                                     })
 
 def add_review(request):
-    # reviews = Review.objects.all()
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.date = timezone.now()
             form.save()
-            messages.add_message(request, messages.INFO, 'Спасибо за ваш отзыв.')
+            messages.add_message(request, messages.INFO, 'Спасибо за Ваш отзыв!')
             return redirect('home_page')
 
-            # return render(request, 'product/reviews.html', {'reviews': reviews,
-            #                                                 'form': form,
-            #                                                 })
     else:
         form = ReviewForm()
     return render(request, 'product/add_review.html', {'form': form,
