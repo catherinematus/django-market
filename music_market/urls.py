@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import home_page, product_category, product_subcategory, product_detail,\
     product_to_basket, product_in_basket, product_remove_basket, product_leave_basket, login_user, register, review, \
-    add_review, delivery
+    add_review, delivery, payment
 
 urlpatterns = [
 
@@ -19,6 +19,7 @@ urlpatterns = [
     path('review/', review, name='review'),
     path('add_review/', add_review, name='add_review'),
     path('delivery/', delivery, name='delivery'),
+    path('payment/', payment, name='payment'),
 
     path('', home_page, name='home_page'),
 

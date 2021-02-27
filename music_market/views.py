@@ -213,3 +213,6 @@ def add_review(request):
 
 def delivery(request):
     return render(request, 'product/delivery.html')
+
+def payment(request):
+    return render(request, 'product/payment.html')
