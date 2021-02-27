@@ -216,3 +216,6 @@ def delivery(request):
 
 def payment(request):
     return render(request, 'product/payment.html')
+
+def warranty(request):
+    return render(request, 'product/warranty.html')
