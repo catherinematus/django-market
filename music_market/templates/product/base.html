@@ -51,7 +51,32 @@
 
               {% endblock %}
 
-<div class="panel panel-default" style="margin-top: 200px">
+<div class="container-fluid" style="background-color:#788182; margin-top: 50px">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                <h3>КОНТАКТЫ</h3>
+                <p><span class="glyphicon glyphicon-map-marker"></span> г. Минск, пр. Дзержинского, 104</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> +375(29)777-55-32</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> music@shop.by</p>
+            </div>
+            <div class="col-sm-4">
+                 <h3>О НАС</h3>
+                 <p><a href="{% url 'delivery' %}" style="color:white">Доставка</a></p>
+                 <p><a href="#" style="color:white">Оплата</a></p>
+                 <p><a href="#" style="color:white">Магазины</a></p>
+                 <p><a href="#" style="color:white">Как купить?</a></p>
+                 <p><a href="#" style="color:white">Гарантии</a></p>
+                 <p><a href="#" style="color:white">Подарочный сертификат</a></p>
+                 <p><a href="#" style="color:white">Акции</a></p>
+                 <p><a href="{% url 'review' %}" style="color:white">Отзывы</a></p>
+
+            </div>
+        </div>
+</div>
+
+1
+<div class="panel panel-default">
     <div class="panel-footer">
         <p class="text-center">Copyright <span class="glyphicon glyphicon-copyright-mark"></span>  Music Market 2020</p>
     </div>

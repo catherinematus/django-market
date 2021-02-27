@@ -210,3 +210,6 @@ def add_review(request):
         form = ReviewForm()
     return render(request, 'product/add_review.html', {'form': form,
                                                     })
+
+def delivery(request):
+    return render(request, 'product/delivery.html')
